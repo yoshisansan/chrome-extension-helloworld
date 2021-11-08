@@ -2,28 +2,20 @@
   "name": "Hello World",
   "description" : "Chrome拡張機能のテストアプリ",
   "version": "1.0.1",
-  "manifest_version": 2,
-  "permissions": [
-    "tabs",
-    "storage"
-  ],
-  "browser_action": {
-    "default_popup": "src/popup.html",
-    "default_icon": {
-      "32": "assets/earth-32px.png"
-    },
-    "css" : [],
-    "js" : []
-  },
-  "content_scripts": [{
-    "matches": ["https://dammy.com/*"],
-    "all_frames": true,
-    "js": ["src/content.js"]
-  }],
+  "manifest_version": 3,
   "background": {
-    "scripts": ["src/background.js"]
+    "service_worker": "src/background.js"
+  },
+  "permissions": ["storage", "activeTab", "scripting"],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "32": "/assets/earth-32px.png",
+      "48": "/assets/earth-48px.png"
+    }
   },
   "icons": {
+    "32": "/assets/earth-32px.png",
     "48": "assets/earth-48px.png"
   }
 }
